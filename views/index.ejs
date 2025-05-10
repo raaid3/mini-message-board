@@ -13,6 +13,7 @@
         <p>User: <%= message.user %></p>
         <p>Message: <%= message.text %></p>
         <p>Date: <%= message.added.toDateString() %></p>
+        <a href="/messageDetails/<%= message.id %>">Open Message</a>
       </div>
       <% }); %>
     </ul>
