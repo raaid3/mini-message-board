@@ -5,15 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Message Board</title>
   </head>
-  <body>
-    <a href="/new">New Message</a>
-    <ul>
-      <% messages.forEach((message)=>{ %>
-      <div style="border: solid black">
-        <p>User: <%= message.user %></p>
-        <p>Message: <%= message.text %></p>
-        <p>Date: <%= message.added.toDateString() %></p>
-        <a href="/messageDetails/<%= message.id %>">Open Message</a>
+  <body style="font-family: Arial, sans-serif; margin: 2rem">
+    <a
+      href="/new"
+      style="
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      "
+      >New Message</a
+    >
+
+    <ul style="padding: 0; margin: 2rem auto; list-style-type: none">
+      <% messages.slice().reverse().forEach((message) => { %>
+      <div
+        style="
+          border: 1px solid #ddd;
+          background-color: #f9f9f9;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 5px;
+        "
+      >
+        <p><strong>User:</strong> <%= message.user %></p>
+        <p><strong>Message:</strong> <%= message.text %></p>
+        <p><strong>Date:</strong> <%= message.added.toDateString() %></p>
+        <a
+          href="/messageDetails/<%= message.id %>"
+          style="color: #333; text-decoration: underline"
+          >Open Message</a
+        >
       </div>
       <% }); %>
     </ul>
