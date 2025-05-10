@@ -5,7 +5,7 @@ const { indexRouter } = require("./routes/indexRouter");
 const app = express();
 
 // PORT
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // setting up templating engine
 app.set("views", path.join(__dirname, "views"));
